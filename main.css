@@ -1,0 +1,39 @@
+body {
+  font-family: sans-serif;
+  color: #aaa;
+}
+
+main {
+  width: 400px;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+  color: red;
+}
+
+#toTranslate {
+  width: 400px;
+  height: 200px;
+  font-size: 20px;
+  border: 1px solid steelblue;
+  background: whitesmoke;
+}
+
+/*#submit-button {*/
+button {
+  width: 400px;
+  height: 40px;
+  border: 0;
+  cursor: pointer;
+  background-color: steelblue;
+  color: white;
+}
+
+/*#translated {*/
+P {
+  border: 1px solid steelblue;
+  background: whitesmoke;
+  min-height: 100px;
+}
