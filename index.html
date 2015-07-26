@@ -1,2 +1,43 @@
-Create a simple http server using node. *
-This server should respond to a root-url request with a file called index.html. Do not use ExpressJS. Your code should have error checking and at least one callback. Put five or more html elements in your index.html. One of the elements should be a link to an external page. Things to research: node.js, callbacks, the fs module, the http module.
+<!-- Create a simple http server using node. *
+This server should respond to a root-url request with a
+  file called index.html.
+Do not use ExpressJS.
+Your code should have error checking and
+at least one callback.
+Put five or more html elements in your index.html.
+  One of the elements should be a link to an external page.
+  Things to research: node.js, callbacks, the fs module, the http module. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Server</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
+<head>
+
+<body>
+  <main>
+    <h1 style='padding: 20px;' id="color-header">Translator</h1>
+
+    <form>
+
+      <textarea id='toTranslate' name='text'>hello world</textarea>
+      <br>
+      <button id="submit-button" type="submit">PIG LATIN TRANSLATOR BUTTON</button>
+    </form>
+
+    <div>
+      <p id='translated'></p>
+      <br>
+      <button id="swedishButton" type="submit">ROVARSPRAKET — SWEDISH TRANSLATOR BUTTON</button>
+      <p id='swedish-text'></p>
+    </div>
+
+  </main>
+
+
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
