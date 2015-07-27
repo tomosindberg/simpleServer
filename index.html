@@ -1,9 +1,9 @@
-<!-- Create a simple http server using node. *
-This server should respond to a root-url request with a
-  file called index.html.
-Do not use ExpressJS.
-Your code should have error checking and
-at least one callback.
+<!-- Create a simple http server using node. **
+This server should respond to a root-url request with a **
+  file called index.html.  **
+Do not use ExpressJS.  **
+Your code should have error checking **
+and at least one callback.
 Put five or more html elements in your index.html.
   One of the elements should be a link to an external page.
   Things to research: node.js, callbacks, the fs module, the http module. -->
@@ -11,33 +11,180 @@ Put five or more html elements in your index.html.
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Simple Server</title>
-  <link rel="stylesheet" type="text/css" href="main.css">
-<head>
+  <title>Simple Site</title>
+  <!-- <link href="main.css" type="text/css" rel="stylesheet"> -->
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="main.css"> -->
+  <style>
+div {
+    border: 2px solid red;
+    padding: 10px;
+    width: 70%;
+    margin: 10px;
+  }
+h1 {
+  /*color: red;*/
+  text-align: center;
+ /* box-sizing: border-box;*/
+}
 
+li {
+  float:left;
+  display: inline;
+  padding: 10px;
+  width: 10%;
+  border: 2px solid #DB5800;
+  margin: 10px;
+  text-align: center;
+}
+body {
+  background-color: #008F68;
+}
+
+footer   {
+  margin-top:50px;
+  color:white;
+  background: #282827;
+  width: 153px;
+
+}
+img   {
+  margin: auto;
+  padding: 10px;
+}
+
+/*
+#222222   darkgray
+#D11250   pink
+#DB5800   orange
+#006899   nice blue
+#008F68   light green
+#DCD8CF   light gray
+#E25D33   orange
+#282827   black
+*/
+
+</style>
+
+<head>
 <body>
   <main>
-    <h1 style='padding: 20px;' id="color-header">Translator</h1>
+    <h1 style='padding: 20px;' id="color-header">Application to CodeFellows DA</h1>
+    <img src = "lambo.jpg" alt ="lamborghini">
 
     <form>
-
-      <textarea id='toTranslate' name='text'>hello world</textarea>
-      <br>
-      <button id="submit-button" type="submit">PIG LATIN TRANSLATOR BUTTON</button>
+      <li>work experiance</li>
+      <li>education</li>
+      <li>background</li>
+      <li>About me</li>
+     <li>Git Hub</li>
+ <!--       <li>6th menu</li> -->
     </form>
 
     <div>
-      <p id='translated'></p>
-      <br>
-      <button id="swedishButton" type="submit">ROVARSPRAKET — SWEDISH TRANSLATOR BUTTON</button>
-      <p id='swedish-text'></p>
+      <a href ="http://www.codefellows.com">CodeFellows</a>
     </div>
 
+    <div>
+    <!-- <form action="http:..www.example.com/reviews.php" method="get"> -->
+    <fieldset id = "contactInfo">
+      <legend>
+        Contact Information:
+      </legend>
+      <label>
+        First Name:
+        <input type="text" name="firstname" size="30" maxlength="100" placeholder="First Name">
+      </label>
+      <label>
+        Last Name:
+        <input type="text" name="lastname" size="30" maxlength="100" placeholder="Last Name">
+      </label>
+      <br/>
+      <label>
+        Email:
+        <input type="email" name="email" input type="email"size="30" maxlength="100" placeholder="email address" >
+      </label>
+      <label>
+        Phone Number:
+        <input type="text" name="phone number" size="30" maxlength="100" placeholder="Phone Number">
+      </label>
+    </div>
+
+      <div>
+    </fieldset>
+    <br/>
+    <fieldset>
+      <legend>
+        Your Review:
+      </legend>
+      <p>
+        <label for="hear-about">
+          How did you hear about us?
+        </label>
+        <select name="referrer" id="hear-about">
+          <option value="google">Google</option>
+          <option value="friend">Friend</option>
+          <option value="advert">Advert</option>
+          <option valut="other">Other</option>
+        </select>
+      </p>
+
+      <p>
+        Would you visit again?
+        <br/>
+        <label>
+          <input type="radio" name="rating" value="yes" />
+          Yes
+        </label>
+        <label>
+        <input type="radio" name="rating" value="no"/>
+        No
+       </label>
+       <label>
+        <input type="radio" name="rating" value="maybe"/>
+        Maybe
+       </label>
+      </p>
+      <p>
+        <label for="comments">
+          Comments:
+        </label>
+        <br/>
+        <textarea rows="4" cols="40" id="comments">Enter your comments
+        </textarea>
+      </p>
+      <label>
+        <input type="checkbox" name="subscribe" checked="checked"/>
+        Signme up for email updates
+      </label>
+      <br/>
+      <input type="submit" value="Submit review"/>
+    </fieldset>
+  </div>
+  <div>
+    <fieldset>
+      <legend> This is the last fieldset>
+      </legend>
+      <p>
+        <label>
+          Please select your music player using the check box below:
+          <br/>
+          <input type="checkbox" name="music" value="itunes" /> iTunes
+          <input type="checkbox" name="music" value="lastfm" /> Last.fm
+          <input type="checkbox" name="music" value="spotify" /> Spotify
+        </label>
+      </p>
+    </fieldset>
+</div>
+ <p>Please email
+  <a href = "mailto:tsindberg@gmail.com">tsindberg@gmail.com</a>
+  with any questions.
+  </p>
   </main>
 
-
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="app.js"></script>
-
 </body>
+<footer>
+  <p id='footer'>&copy 2015 Tomo Sindberg</p>
+</footer>
+ <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </html>
