@@ -3,188 +3,91 @@ This server should respond to a root-url request with a **
   file called index.html.  **
 Do not use ExpressJS.  **
 Your code should have error checking **
-and at least one callback.
-Put five or more html elements in your index.html.
-  One of the elements should be a link to an external page.
+and at least one callback. **
+Put five or more html elements in your index.html.  **
+  One of the elements should be a link to an external page. **
   Things to research: node.js, callbacks, the fs module, the http module. -->
 
 <!DOCTYPE html>
 <html>
 <head>
   <title>Simple Site</title>
-  <!-- <link href="main.css" type="text/css" rel="stylesheet"> -->
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-  <!-- <link rel="stylesheet" type="text/css" href="main.css"> -->
   <style>
-div {
-    border: 2px solid red;
-    padding: 10px;
-    width: 70%;
-    margin: 10px;
-  }
-h1 {
-  /*color: red;*/
-  text-align: center;
- /* box-sizing: border-box;*/
-}
-
-li {
-  float:left;
-  display: inline;
-  padding: 10px;
-  width: 10%;
-  border: 2px solid #DB5800;
-  margin: 10px;
-  text-align: center;
-}
-body {
-  background-color: #008F68;
-}
-
-footer   {
-  margin-top:50px;
-  color:white;
-  background: #282827;
-  width: 153px;
-
-}
-img   {
-  margin: auto;
-  padding: 10px;
-}
-
-/*
-#222222   darkgray
-#D11250   pink
-#DB5800   orange
-#006899   nice blue
-#008F68   light green
-#DCD8CF   light gray
-#E25D33   orange
-#282827   black
-*/
-
+    h1  {
+      text-align: center;
+      background-color: #006899;
+    }
+    body  {
+      background-color: #008F68;
+    }
+    p   {
+      position: relative;
+      border: 2px solid blue;
+      float: right;
+    }
+    footer   {
+      margin-top:50px;
+      background: #DCD8CF;
+      padding: 10px;
+      min-width: 610px;
+    }
+    #content {
+      min-width: 610px;
+      max-width: 800px;
+      margin: 0 10% 0 10%;
+      background-color: #F4EBC3;
+      padding-bottom: 170px;
+      border: 2px solid red;
+    }
+    .pic  {
+      height: 120px;
+      width: 128px;
+      float: left;
+      border: 2px solid black;
+      background-color: black;
+    }
+    #email {
+      float: right;
+    }
+    #Copyright {
+      float:left;
+    }
 </style>
+</head>
 
-<head>
 <body>
-  <main>
-    <h1 style='padding: 20px;' id="color-header">Application to CodeFellows DA</h1>
-    <img src = "lambo.jpg" alt ="lamborghini">
-
-    <form>
-      <li>work experiance</li>
-      <li>education</li>
-      <li>background</li>
-      <li>About me</li>
-     <li>Git Hub</li>
- <!--       <li>6th menu</li> -->
-    </form>
-
+  <h1>CodeFellows Coding Challenges</h1>
+  <div id ="content">
     <div>
-      <a href ="http://www.codefellows.com">CodeFellows</a>
+      <h4>JavaScript Coding Challenge #1</h4>
+      <p>
+      <img class="pic" src = "git.png" alt ="Git Logo" >Write a function that takes an array of data in the below format. Assume that this function is run in a browser. It should update a tag with id="awesome-index" with the average awesome-index of all programmers. Your solution should continue to work even if more people are added to the array. Write two versions, one using lodash (or underscore) and jQuery, and one using only Javascript utilities native to the browser.<br>
+      <a href ="https://github.com/tomosindberg/1st-DA">GitHub Challenge #1 Link</a>
+      </p>
     </div>
-
     <div>
-    <!-- <form action="http:..www.example.com/reviews.php" method="get"> -->
-    <fieldset id = "contactInfo">
-      <legend>
-        Contact Information:
-      </legend>
-      <label>
-        First Name:
-        <input type="text" name="firstname" size="30" maxlength="100" placeholder="First Name">
-      </label>
-      <label>
-        Last Name:
-        <input type="text" name="lastname" size="30" maxlength="100" placeholder="Last Name">
-      </label>
-      <br/>
-      <label>
-        Email:
-        <input type="email" name="email" input type="email"size="30" maxlength="100" placeholder="email address" >
-      </label>
-      <label>
-        Phone Number:
-        <input type="text" name="phone number" size="30" maxlength="100" placeholder="Phone Number">
-      </label>
+      <h4>JavaScript Coding Challenge #2</h4>
+      <p>
+      <img class="pic" src = "git.png" alt ="Git Logo" >Create a simple http server using node. *<br>
+      This server should respond to a root-url request with a file called index.html. Do not use ExpressJS. Your code should have error checking and at least one callback. Put five or more html elements in your index.html. One of the elements should be a link to an external page. Things to research: node.js, callbacks, the fs module, the http module.<br>
+      <a href="https://github.com/tomosindberg/simpleServer">GitHub Challenge #2 Link</a>
+    </p>
     </div>
-
-      <div>
-    </fieldset>
-    <br/>
-    <fieldset>
-      <legend>
-        Your Review:
-      </legend>
+    <div>
+      <h4>JavaScript Coding Challenge #3</h4>
       <p>
-        <label for="hear-about">
-          How did you hear about us?
-        </label>
-        <select name="referrer" id="hear-about">
-          <option value="google">Google</option>
-          <option value="friend">Friend</option>
-          <option value="advert">Advert</option>
-          <option valut="other">Other</option>
-        </select>
+      <img class="pic" src = "git.png" alt ="Git Logo" >Model a library using objects. *<br>
+      A library contains shelves. Shelves contain books. Books have an author and a title. Give the library methods to add and remove a shelf. A shelf should have methods to add/remove a book. Use a modular approach so that each type of object is contained in its own file. Add any functionality you think appropriate.<br>
+      <a href="https://github.com/tomosindberg/simpleServer">GitHub Challenge #2 Link</a>
       </p>
-
-      <p>
-        Would you visit again?
-        <br/>
-        <label>
-          <input type="radio" name="rating" value="yes" />
-          Yes
-        </label>
-        <label>
-        <input type="radio" name="rating" value="no"/>
-        No
-       </label>
-       <label>
-        <input type="radio" name="rating" value="maybe"/>
-        Maybe
-       </label>
-      </p>
-      <p>
-        <label for="comments">
-          Comments:
-        </label>
-        <br/>
-        <textarea rows="4" cols="40" id="comments">Enter your comments
-        </textarea>
-      </p>
-      <label>
-        <input type="checkbox" name="subscribe" checked="checked"/>
-        Signme up for email updates
-      </label>
-      <br/>
-      <input type="submit" value="Submit review"/>
-    </fieldset>
+    </div>
   </div>
-  <div>
-    <fieldset>
-      <legend> This is the last fieldset>
-      </legend>
-      <p>
-        <label>
-          Please select your music player using the check box below:
-          <br/>
-          <input type="checkbox" name="music" value="itunes" /> iTunes
-          <input type="checkbox" name="music" value="lastfm" /> Last.fm
-          <input type="checkbox" name="music" value="spotify" /> Spotify
-        </label>
-      </p>
-    </fieldset>
-</div>
- <p>Please email
-  <a href = "mailto:tsindberg@gmail.com">tsindberg@gmail.com</a>
-  with any questions.
-  </p>
-  </main>
-
-</body>
 <footer>
-  <p id='footer'>&copy 2015 Tomo Sindberg</p>
+ <div id = "email">Please email
+  <a href = "mailto:tsindberg@gmail.com">tsindberg@gmail.com</a>
+  for website problems.</div>
+  <div id = "copyRight"> Copyright &copy 2015 Tomo Sindberg</div>
 </footer>
+</body>
  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </html>
