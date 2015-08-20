@@ -10,12 +10,11 @@
 
 var http = require('http');
 var fs = require('fs');  //fs = file system, needed for files
-var connect = require('connect');
 var commonHeaders = {'Content-Type': 'text/html'};
 
 
 var server = http.createServer(function(request, response){
-  if (request.method == 'GET' && request.url =='/') {
+  if (request.method == 'GET' && (request.url =='/index.html' || request.url == '/') ) {
     fs.readFile('index.html', function(error, page){
       response.writeHead(200, commonHeaders);
       response.write(page);
@@ -30,3 +29,7 @@ var server = http.createServer(function(request, response){
 });
 server.listen(3000);
 console.log("Server is now running...");
+
+
+//create a public directory any HTML file, serve it if exists if it doesnt error 404
+//use the other lodash and other code challenge files.
