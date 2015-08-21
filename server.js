@@ -1,35 +1,100 @@
-// Create a simple http server using node. *
-// This server should respond to a root-url request with a
-//   file called index.html.
-// Do not use ExpressJS.
-// Your code should have error checking and
-// at least one callback.
-// Put five or more html elements in your index.html.
-//   One of the elements should be a link to an external page.
-//   Things to research: node.js, callbacks, the fs module, the http module.
-
-var http = require('http');
-var fs = require('fs');  //fs = file system, needed for files
-var commonHeaders = {'Content-Type': 'text/html'};
 
 
-var server = http.createServer(function(request, response){
-  if (request.method == 'GET' && (request.url =='/index.html' || request.url == '/') ) {
-    fs.readFile('index.html', function(error, page){
-      response.writeHead(200, commonHeaders);
-      response.write(page);
-      response.end();
-    });
-  }
-  else {
-    response.writeHead(404, commonHeaders);
-    response.write("Error 404 Page Not Found.");
+var path = require('path'),
+  http = require('http'),
+  fs = require('fs'),
+  url = require('url'),
+  mime = require('mime');
+
+var server = http.createServer();
+
+//NEW CODE!
+var cache = {};
+
+//genericSend(404,"not found");
+function genericSend(code,message,response) {
+  response.writeHead(code,{"Content-Type":"text/plain"});
+  response.end(message);
+}
+server.on('request',function(request,response) {
+
+  var urlParams = url.parse(request.url),
+    // pathname: /index.html ==> index.html
+    filename = path.join('.',urlParams.pathname);
+
+  //NEW CODE
+  if(cache[filename]) {
+    response.writeHead(200,{'Content-Type':cache[filename]['Content-Type']});
+    response.write(cache[filename].file,'binary');
     response.end();
   }
+  else {
+    fs.exists(filename,function(exists) {
+      if(!exists)
+        return genericSend(404,'not found',response);
+
+      fs.readFile(filename,'binary',function(err,file) {
+        if(err)
+          return genericSend(500,'internal server error',response);
+
+        var type = mime.lookup(filename);
+        response.writeHead(200,{'Content-Type':type});
+        response.write(file,'binary');
+        response.end();
+        //NEW CODE
+        cache[filename] = {
+          'Content-Type':type,
+          file:file
+        };
+      });
+    });
+  }
 });
+
 server.listen(3000);
-console.log("Server is now running...");
 
 
-//create a public directory any HTML file, serve it if exists if it doesnt error 404
-//use the other lodash and other code challenge files.
+
+///////////////////////////////
+// var http = require('http'),
+//     url = require('url'),
+//     path = require('path'),
+//     fs = require('fs'),
+//     mime = require('mime');
+
+// var server = http.createServer();
+
+// //genericSend(404, "not found");
+// function genericSend(code,message,response){
+//   response.writeHead(code,{"Content-Type":"text/plain"});
+//   response.end(message);
+// }
+
+// server.on('request', function(request, response) {
+
+//   var urlParams = url.parse(request.url),
+//     //pathname: /index.html ==> index.html
+//       filename = path.join('.', urlParams.pathname);
+//         console.log(urlParams + '   ' + filename);
+//   fs.exists(filename, function(exists){
+//     if(!exists)
+//       return genericSend(404, 'not found', response);
+
+//     fs.readFile(filename, 'binary', function(err,file){
+//       if(err){
+//         return genericSend(500,'internal server err', res);
+//       }
+//       var type = mime.lookup(filename);
+//         // console.log(type);
+//       response.writeHead(200,{'Content-Type':type});
+//       response.write(file, 'binary');
+//       response.end();
+//     });
+//   });
+// });
+
+// server.listen(3000);
+
+
+
+
